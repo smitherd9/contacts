@@ -1,0 +1,8 @@
+* {
+	box-sizing: border-box;
+}
+
+
+.show-contact {
+	display: inline-block;
+}
