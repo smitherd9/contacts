@@ -37,15 +37,16 @@ $(document).ready(function() {
 
     });
 
-    $('.show-contact').click(function() {
+    $('.show-contact').on('click', '.contact', function() {
         // alert('wassup yo');
-        var i = $(submissionArray[i]).data('index');
+        var i = $(this).data('index');
         console.log(i);
 
         var c = submissionArray[i];
         console.log(c);
+        var contactInfo = c.firstName + c.lastName + c.phoneNumber + c.street + c.city + c.state;
 
-        $(this).append(' <span class="contactInfo">' + c + '</span>');
+        $(this).append('<span class="contactInfo">' + contactInfo + '</span>');
     });
 
     // $('.form-group').submit(function(e){
