@@ -4,5 +4,15 @@
 
 
 .show-contact {
+	display: block;
+}
+
+.container {
 	display: inline-block;
+	width: 70%;
+}
+
+.container2 {
+	display: inline-block;
+	width: 25%;
 }

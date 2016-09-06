@@ -26,8 +26,8 @@ $(document).ready(function() {
         console.log(submissionArray);
 
 
-        //DOM manipulation
-        var elem = $('<div>');
+        //DOM manipulation     // This var elem is created after the page loads b/c it is within the .click function for #add.  
+        var elem = $('<div>');       // Since it doesn't exist yet, you can't use $('.contact').click(function(){...});
         elem.text(submission.firstName);
         elem.addClass('contact');
         elem.data('index', submissionArray.length - 1);  // array location starts at 0 but the length of an array starts at 1
@@ -37,6 +37,9 @@ $(document).ready(function() {
 
     });
 
+// $('.contact').click()     // This will not work.  The $('.show-contact').on('click') is created when the page loads.
+							// so the class and listener already exist.  Later, when the '.contact' is created, it will find that class upon the click listening event.
+
     $('.show-contact').on('click', '.contact', function() {
         // alert('wassup yo');
         var i = $(this).data('index');
@@ -44,9 +47,14 @@ $(document).ready(function() {
 
         var c = submissionArray[i];
         console.log(c);
-        var contactInfo = c.firstName + c.lastName + c.phoneNumber + c.street + c.city + c.state;
-
-        $(this).append('<span class="contactInfo">' + contactInfo + '</span>');
+        // var contactInfo = c.firstName + c.lastName + c.phoneNumber + c.street + c.city + c.state;
+        $('#contactInfo h2').text(c.firstName + ' ' + c.lastName);
+        $('#contactInfo p#firstName').text('First Name:' + ' ' + c.firstName);
+        $('#contactInfo p#lastName').text('Last Name:' + ' ' + c.lastName);
+        $('#contactInfo p#phoneNumber').text('Phone Number:' + ' ' + c.phoneNumber);
+        $('#contactInfo p#addresses').text('Addresses:');
+        $('#contactInfo ul#addresses').append('<li>' + c.street + '</li>' + '<li>' + c.city + ' ' + c.state + ' ' + '</li>');  //.text('<li>' + c.street + '</li>');
+        // $(this).append('<span class="contactInfo">' + contactInfo + '</span>');
     });
 
     // $('.form-group').submit(function(e){
