@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 
         //DOM manipulation     // This var elem is created after the page loads b/c it is within the .click function for #add.  
-        var elem = $('<div>');       // Since it doesn't exist yet, you can't use $('.contact').click(function(){...});
+        var elem = $('<li><a href="#">');       // Since it doesn't exist yet, you can't use $('.contact').click(function(){...});
         elem.text(submission.firstName);
         elem.addClass('contact');
         elem.data('index', submissionArray.length - 1);  // array location starts at 0 but the length of an array starts at 1
@@ -54,19 +54,8 @@ $(document).ready(function() {
         $('#contactInfo p#phoneNumber').text('Phone Number:' + ' ' + c.phoneNumber);
         $('#contactInfo p#addresses').text('Addresses:');
         $('#contactInfo ul#addresses').append('<li>' + c.street + '</li>' + '<li>' + c.city + ' ' + c.state + ' ' + '</li>');  //.text('<li>' + c.street + '</li>');
-        // $(this).append('<span class="contactInfo">' + contactInfo + '</span>');
+        
     });
-
-    // $('.form-group').submit(function(e){
-    // 	e.preventDefault();
-    // 	var input = $('.form-control').val();
-    // 	$('.form-control').val("");
-
-    // });
-
-    // var submission = new Contact;
-
-
 
 
 
